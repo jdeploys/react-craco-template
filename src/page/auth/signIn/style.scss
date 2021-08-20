@@ -1,0 +1,48 @@
+@import 'src/style/index';
+
+.sign-in-page {
+  flex: 1;
+
+  &-side {
+    background-color: $bg-default;
+    height: 100%;
+    padding: 64px;
+    &__title {
+      font-size: 24px;
+      font-weight: 500;
+    }
+    &__sub-title {
+      color: $gray-color;
+      font-size: 14px;
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+    &__left {
+      background-color: $gray-2;
+      padding: 0;
+    }
+  }
+  &__bg {
+    &-image {
+      max-height: 315px;
+      width: 80%;
+      height: 100%;
+      background-image: url('../../../asset/mirage-message-sent.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    &-license {
+      position: absolute;
+      color: $gray-6;
+      font-size: 10px;
+      right: 14px;
+      bottom: 14px;
+
+      a {
+        text-decoration: none;
+        color: $gray-7;
+      }
+    }
+  }
+}

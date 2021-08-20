@@ -1,0 +1,56 @@
+// 이 파일은 SCSS 용 헬퍼 유틸리티 들을 선언함
+
+// margin and padding values array
+$space-values: (0, 4, 6, 8, 10, 12, 16, 18, 20, 24, 28, 32, 36, 40, 50) !default;
+
+// margin and padding shorthands
+$space-prefixes: (
+  p: padding,
+  pt: padding-top,
+  pr: padding-right,
+  pb: padding-bottom,
+  pl: padding-left,
+  m: margin,
+  mt: margin-top,
+  mr: margin-right,
+  mb: margin-bottom,
+  ml: margin-left,
+) !default;
+
+// 위 정의된 영역 대로 p-0 하면 padding: 0,
+// pt-8 하면 padding-top: 8 이런식으로 4방향에 대해 padding, margin 영역 선언함
+// 이 값의 종류가 더 필요한 경우 $space-values 에 값을 추가하면 됨
+@mixin make-spaces() {
+  @each $attr-short, $attr-long in $space-prefixes {
+    @each $value in $space-values {
+      .#{$attr-short}-#{$value} {
+        #{$attr-long}: #{$value}#{'px'} !important;
+      }
+    }
+  }
+}
+
+// 가로, 세로용 영역 생성기
+// px-0 하면 padding-left: 0, padding-right: 0
+// py-3 하면 padding-top: 3, padding-bottom: 3
+// 이 값의 종류가 더 필요한 경우 $space-values 에 값을 추가하면 됨
+@mixin make-multi-spaces() {
+  @each $value in $space-values {
+    .px-#{$value} {
+      padding-left: #{$value}#{'px'} !important;
+      padding-right: #{$value}#{'px'} !important;
+    }
+    .py-#{$value} {
+      padding-top: #{$value}#{'px'} !important;
+      padding-bottom: #{$value}#{'px'} !important;
+    }
+    .mx-#{$value} {
+      margin-left: #{$value}#{'px'} !important;
+      margin-right: #{$value}#{'px'} !important;
+    }
+    .my-#{$value} {
+      margin-top: #{$value}#{'px'} !important;
+      margin-bottom: #{$value}#{'px'} !important;
+    }
+  }
+}
